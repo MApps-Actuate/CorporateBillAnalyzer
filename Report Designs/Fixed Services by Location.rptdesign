@@ -1,0 +1,2885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201603302314</property>
+    <property name="units">in</property>
+    <property name="theme">ThemesReportItems31.Modern</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="Company" id="2198">
+            <property name="hidden">false</property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">false</property>
+            <property name="dataSetName">ParamDataSet</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["Company Name"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["Company Name"]</expression>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">OpenText</value>
+                <value type="constant">Accenture</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Department" id="78">
+            <property name="hidden">false</property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">false</property>
+            <property name="dataSetName">ParamDataSet</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["Department"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["Department"]</expression>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Training</value>
+                <value type="constant">Sales</value>
+                <value type="constant">Marketing</value>
+                <value type="constant">Accounting</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="Period" id="79">
+            <property name="hidden">false</property>
+            <property name="valueType">dynamic</property>
+            <property name="isRequired">false</property>
+            <property name="dataSetName">ParamDataSet</property>
+            <expression name="valueExpr" type="javascript">dataSetRow["Period Year Month"]</expression>
+            <expression name="labelExpr" type="javascript">dataSetRow["Period Year Month"]</expression>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">201606</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">multi-value</property>
+            <property name="controlType">list-box</property>
+            <property name="mustMatch">true</property>
+            <property name="fixedOrder">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <data-mart-data-source name="Data Source" id="4">
+            <property name="datamartURL">Data Objects/Corporate Telco</property>
+            <property name="accessType">latest</property>
+        </data-mart-data-source>
+        <oda-data-source extensionID="com.actuate.data.oda.fastdb" name="Data Source1" id="2205">
+            <text-property name="displayName"></text-property>
+            <property name="fastDBUrl"></property>
+            <property name="port">8105</property>
+            <property name="user">&lt;username></property>
+            <encrypted-property name="password" encryptionID="jce">caab65efdde92e0b</encrypted-property>
+            <property name="rowsPerPage">1000</property>
+            <property name="ssl">No</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <data-mart-data-set name="Billing Data Set" id="153">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Location</property>
+                    <expression name="expression" type="javascript">row["Region"] + "," + row["City"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CustomerID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">CustomerID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Region</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Region</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">City</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">City</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Billing Account</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Billing Account</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Department</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Emp ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Emp ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Full Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Full Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Phone Number</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Phone Number</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Bill Plan Charge</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Bill Plan Charge</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Date</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year Month</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Year Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Year</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Bill</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Bill</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Overrages</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Overrages</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Overrage Bands</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Overrage Bands</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Regular Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Regular Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Dept</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Dept</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Product</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Product</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Customer Identifier</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Customer Identifier</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Company Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Company Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <list-property name="filter">
+                <structure>
+                    <property name="operator">in</property>
+                    <expression name="expr" type="javascript">row["Department"]</expression>
+                    <simple-property-list name="value1">
+                        <value>if(params["Department"].value==null)&#13;
+	row["Department"];&#13;
+else&#13;
+	params["Department"].value</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="operator">in</property>
+                    <expression name="expr" type="javascript">row["Period Year Month"]</expression>
+                    <simple-property-list name="value1">
+                        <value>if(params["Period"].value==null || params["Period"].value==6)&#13;
+	row["Period Year Month"];&#13;
+else&#13;
+	params["Period"].value;</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="operator">in</property>
+                    <expression name="expr" type="javascript">row["Company Name"]</expression>
+                    <simple-property-list name="value1">
+                        <value>if(params["Company"].value==null||params["Company"].value=="")&#13;
+	row["Company Name"];&#13;
+else&#13;
+	params["Company"].value;</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="operator">ne</property>
+                    <expression name="expr" type="javascript">row["Region"]</expression>
+                    <simple-property-list name="value1">
+                        <value>"NA"</value>
+                    </simple-property-list>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CustomerID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Region</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">City</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Billing Account</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Emp ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Full Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Phone Number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Plan ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Plan Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Max Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Max Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Max Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Max Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Max Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Bill Plan Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Period Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Period Year Month</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">Period Year</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">Period Month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">Total Bill</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">Total Overrages</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">Overrage Bands</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">Excess Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">Excess Reg Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">Excess Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">Excess Intl Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">Excess Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">Excess Text Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">Excess Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">Excess Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">Excess Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">Excess Intl Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">Regular Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">International Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">International Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">Dept</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">Product</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">Customer Identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">Company Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">43</property>
+                        <property name="name">Location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <property name="dataObject">Billing Data</property>
+            <list-property name="selectedColumns">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CustomerID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Region</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">City</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Billing Account</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Department</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Emp ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Full Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Phone Number</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Plan ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Plan Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Max Reg Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Max Intl Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Max Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">Max Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">Max Intl Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">Bill Plan Charge</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">Period Date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">Period Year Month</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">Period Year</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">Period Month</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">Total Bill</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">Total Overrages</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">Overrage Bands</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">Excess Reg Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">Excess Reg Min Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">Excess Intl Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">Excess Intl Min Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">Excess Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">Excess Text Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">Excess Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">Excess Data Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">Excess Intl Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">Excess Intl Data Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">Regular Minutes</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">International Minutes</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">International Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">Dept</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">Product</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">Customer Identifier</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">42</property>
+                    <property name="name">Company Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+        </data-mart-data-set>
+        <data-mart-data-set name="ParamDataSet" id="77">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CustomerID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">CustomerID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Region</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Region</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">City</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">City</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Billing Account</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Billing Account</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Department</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Emp ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Emp ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Full Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Full Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Phone Number</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Phone Number</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Bill Plan Charge</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Bill Plan Charge</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Date</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year Month</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Year Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Year</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Bill</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Bill</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Overrages</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Overrages</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Overrage Bands</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Overrage Bands</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Regular Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Regular Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Dept</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Dept</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Product</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Product</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Customer Identifier</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Customer Identifier</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Company Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Company Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CustomerID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Region</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">City</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Billing Account</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Emp ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Full Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Phone Number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Plan ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Plan Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Max Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Max Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Max Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Max Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Max Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Bill Plan Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Period Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Period Year Month</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">Period Year</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">Period Month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">Total Bill</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">Total Overrages</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">Overrage Bands</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">Excess Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">Excess Reg Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">Excess Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">Excess Intl Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">Excess Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">Excess Text Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">Excess Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">Excess Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">Excess Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">Excess Intl Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">Regular Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">International Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">International Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">Dept</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">Product</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">Customer Identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">Company Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <property name="dataObject">Billing Data</property>
+            <list-property name="selectedColumns">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CustomerID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Region</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">City</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Billing Account</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Department</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Emp ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Full Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Phone Number</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Plan ID</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Plan Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Max Reg Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Max Intl Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Max Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">Max Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">Max Intl Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">Bill Plan Charge</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">Period Date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">Period Year Month</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">Period Year</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">Period Month</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">Total Bill</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">Total Overrages</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">Overrage Bands</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">Excess Reg Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">Excess Reg Min Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">Excess Intl Min</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">Excess Intl Min Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">Excess Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">Excess Text Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">Excess Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">Excess Data Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">Excess Intl Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">Excess Intl Data Cost</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">Regular Minutes</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">International Minutes</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">Text</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">International Data</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">Dept</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">Product</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">Customer Identifier</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">42</property>
+                    <property name="name">Company Name</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+        </data-mart-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="9">
+            <property name="height">6.052083333333333in</property>
+            <column id="10">
+                <property name="width">4.395833333333333in</property>
+            </column>
+            <column id="11">
+                <property name="width">6.739583333333333in</property>
+            </column>
+            <row id="12">
+                <property name="height">6.052083333333333in</property>
+                <cell id="13">
+                    <table name="Data Table" id="15">
+                        <list-property name="userProperties">
+                            <structure>
+                                <property name="name">__ac_group_collapse_level</property>
+                                <property name="type">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="width">4.322916666666667in</property>
+                        <property name="dataSet">Billing Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Region</property>
+                                <text-property name="displayName">Region</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Region"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">City</property>
+                                <text-property name="displayName">City</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["City"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Department</property>
+                                <text-property name="displayName">Department</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Department"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Emp ID</property>
+                                <text-property name="displayName">employee_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Emp ID"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Full Name</property>
+                                <text-property name="displayName">FullName</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Full Name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Phone Number</property>
+                                <text-property name="displayName">number</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Phone Number"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Plan ID</property>
+                                <text-property name="displayName">plan_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Plan ID"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Plan Name</property>
+                                <text-property name="displayName">name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Plan Name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Max Reg Min</property>
+                                <text-property name="displayName">max_regular_minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Max Reg Min"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Max Intl Min</property>
+                                <text-property name="displayName">max_international_minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Max Intl Min"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Max Text</property>
+                                <text-property name="displayName">max_text</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Max Text"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Max Data</property>
+                                <text-property name="displayName">max_data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Max Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Max Intl Data</property>
+                                <text-property name="displayName">max_international_data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Max Intl Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Period Date</property>
+                                <text-property name="displayName">PeriodDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Period Date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Period Year Month</property>
+                                <text-property name="displayName">Period YearMonth</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Period Year Month"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Period Year</property>
+                                <text-property name="displayName">Period Year</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Period Year"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Period Month</property>
+                                <text-property name="displayName">Period Month</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Period Month"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Total Bill</property>
+                                <text-property name="displayName">Total Bill</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Total Bill"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Total Overrages</property>
+                                <text-property name="displayName">Total Overrages</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Total Overrages"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Overrage Bands</property>
+                                <text-property name="displayName">Overrage Bands</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Overrage Bands"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Reg Min</property>
+                                <text-property name="displayName">Excess regular_minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Reg Min"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Reg Min Cost</property>
+                                <text-property name="displayName">Excess regular_minutes Cost</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Reg Min Cost"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Intl Min</property>
+                                <text-property name="displayName">Excess international_minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Min"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Intl Min Cost</property>
+                                <text-property name="displayName">Excess international_minutes Cost</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Min Cost"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Text</property>
+                                <text-property name="displayName">Excess text</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Text"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Text Cost</property>
+                                <text-property name="displayName">Excess text Cost</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Text Cost"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Data</property>
+                                <text-property name="displayName">Excess Data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Data Cost</property>
+                                <text-property name="displayName">Excess Data Cost</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Data Cost"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Intl Data</property>
+                                <text-property name="displayName">Excess international_data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Excess Intl Data Cost</property>
+                                <text-property name="displayName">Excess international_data Cost</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Data Cost"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CustomerID</property>
+                                <text-property name="displayName">CustomerID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CustomerID"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Billing Account</property>
+                                <text-property name="displayName">Billing Account</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Billing Account"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Bill Plan Charge</property>
+                                <text-property name="displayName">Bill Plan Charge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Bill Plan Charge"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Regular Minutes</property>
+                                <text-property name="displayName">Regular Minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Regular Minutes"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">International Minutes</property>
+                                <text-property name="displayName">International Minutes</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["International Minutes"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Text</property>
+                                <text-property name="displayName">Text</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Text"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Data</property>
+                                <text-property name="displayName">Data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">International Data</property>
+                                <text-property name="displayName">International Data</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["International Data"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Dept</property>
+                                <text-property name="displayName">Dept</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Dept"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Product</property>
+                                <text-property name="displayName">Product</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Product"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Customer Identifier</property>
+                                <text-property name="displayName">Customer Identifier</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Customer Identifier"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Company Name</property>
+                                <text-property name="displayName">Company Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Company Name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Location</property>
+                                <text-property name="displayName">Location</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Location"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">TotalByRegion</property>
+                                <property name="dataType">float</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>RegionGroup</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["Total Bill"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Location Label</property>
+                                <expression name="expression" type="javascript">dataSetRow["Region"] + ": $" +dataSetRow["Total Bill"].toString()</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <expression name="bookmark" type="javascript">"DataTable"</expression>
+                        <column id="39">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <column id="41">
+                            <property name="width">2.2604166666666665in</property>
+                        </column>
+                        <header>
+                            <row id="16">
+                                <cell id="17">
+                                    <label id="18">
+                                        <property name="paddingLeft">3pt</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Location</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="21">
+                                    <label id="22">
+                                        <property name="paddingLeft">1pt</property>
+                                        <property name="paddingRight">3pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Total Bill</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <group id="43">
+                            <property name="groupName">RegionGroup</property>
+                            <expression name="keyExpr" type="javascript">row["Region"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["Region"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <list-property name="sort">
+                                <structure>
+                                    <expression name="key" type="javascript">row["TotalByRegion"]</expression>
+                                    <property name="direction">desc</property>
+                                    <property name="strength">2</property>
+                                </structure>
+                            </list-property>
+                            <header>
+                                <row id="44">
+                                    <cell id="45">
+                                        <data id="54">
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingLeft">3pt</property>
+                                            <property name="resultSetColumn">Region</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="47">
+                                        <data id="2201">
+                                            <property name="paddingRight">3pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="resultSetColumn">TotalByRegion</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </header>
+                        </group>
+                        <group id="56">
+                            <property name="groupName">DeptGroup</property>
+                            <expression name="keyExpr" type="javascript">row["Department"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["Department"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                        </group>
+                        <footer>
+                            <row id="34">
+                                <property name="height">5.447916666666667in</property>
+                                <cell id="35">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="textAlign">center</property>
+                                    <extended-item extensionName="Chart" id="2204">
+                                        <xml-property name="xmlRepresentation"><![CDATA[<ActuateChart version="2.6.1">
+ <ChartWithAxes version="2.6.1" type="Bar Chart" subType="Side-by-side" orientation="0" reverseCategory="true">
+  <block>
+   <children _type="TitleBlock" visible="false">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <label>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+   </children>
+   <children _type="Plot">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+   </children>
+   <children _type="Legend" visible="false">
+    <outline>
+     <color _nil="1"/>
+    </outline>
+    <clientArea>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </clientArea>
+    <separator>
+     <color _nil="1"/>
+    </separator>
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+   </children>
+   <bounds _body="0.0,0.0,211.5,130.0"/>
+   <outline>
+    <color _nil="1"/>
+   </outline>
+  </block>
+  <extendedProperties name="enable.area.alt" value="false"/>
+  <extendedProperties name="enable.drill.category" value="true"/>
+  <extendedProperties name="enable.drill.series" value="true"/>
+  <extendedProperties name="jschart.series.shadow" value="false"/>
+  <extendedProperties name="jschart.animation" value="false"/>
+  <extendedProperties name="enable.data.summarize" value="true"/>
+  <sampleData>
+   <baseSampleData dataSetRepresentation="A, B, C"/>
+   <orthogonalSampleData dataSetRepresentation="5,4,12" seriesDefinitionIndex="0"/>
+  </sampleData>
+  <emptyMessage>
+   <caption value="This chart contains no data."/>
+   <background _body=",64,127,127,127"/>
+   <outline>
+    <color _body=",128,127,127,127"/>
+   </outline>
+  </emptyMessage>
+  <axes>
+   <title>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </title>
+   <associatedAxes primaryAxis="true">
+    <title>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </title>
+    <seriesDefinitions>
+     <query definition=""/>
+     <seriesPalette>
+      <entries _body=",255,231,131,58"/>
+      <entries _body=",255,242,88,106"/>
+      <entries _body=",255,232,172,58"/>
+      <entries _body=",255,128,255,128"/>
+      <entries _body=",255,64,128,128"/>
+      <entries _body=",255,128,128,192"/>
+      <entries _body=",255,170,85,85"/>
+      <entries _body=",255,128,128,0"/>
+      <entries _body=",255,192,192,192"/>
+      <entries _body=",255,255,255,128"/>
+      <entries _body=",255,128,192,128"/>
+      <entries _body=",255,7,146,94"/>
+      <entries _body=",255,0,128,255"/>
+      <entries _body=",255,255,128,192"/>
+      <entries _body=",255,0,255,255"/>
+      <entries _body=",255,255,128,128"/>
+      <entries _body=",255,0,128,192"/>
+      <entries _body=",255,128,128,192"/>
+      <entries _body=",255,255,0,255"/>
+      <entries _body=",255,128,64,64"/>
+      <entries _body=",255,255,128,64"/>
+      <entries _body=",255,80,240,120"/>
+      <entries _body=",255,0,64,128"/>
+      <entries _body=",255,128,0,64"/>
+      <entries _body=",255,255,0,128"/>
+      <entries _body=",255,128,128,64"/>
+      <entries _body=",255,128,128,128"/>
+      <entries _body=",255,255,128,255"/>
+      <entries _body=",255,0,64,0"/>
+      <entries _body=",255,0,0,0"/>
+      <entries _body=",255,255,255,255"/>
+      <entries _body=",255,255,128,0"/>
+     </seriesPalette>
+     <series _type="BarSeries" seriesIdentifier="Series 1" stacked="false" riser="0">
+      <label>
+       <background _nil="1"/>
+       <outline>
+        <color _nil="1"/>
+       </outline>
+      </label>
+      <dataDefinition definition="row[&quot;Total Bill&quot;]">
+       <grouping/>
+      </dataDefinition>
+      <triggers condition="6">
+       <action type="1">
+        <value _type="TooltipValue" text="" delay="200"/>
+       </action>
+      </triggers>
+      <curveFitting _nil="1"/>
+     </series>
+     <grouping _nil="1"/>
+    </seriesDefinitions>
+    <lineAttributes>
+     <color _body=",255,192,192,192"/>
+    </lineAttributes>
+    <label>
+     <background _nil="1"/>
+     <outline>
+      <color _nil="1"/>
+     </outline>
+    </label>
+    <majorGrid>
+     <lineAttributes visible="true">
+      <color _body=",255,239,239,239"/>
+     </lineAttributes>
+     <tickAttributes visible="false">
+      <color _nil="1"/>
+     </tickAttributes>
+    </majorGrid>
+    <minorGrid>
+     <lineAttributes visible="false">
+      <color _nil="1"/>
+     </lineAttributes>
+     <tickAttributes visible="false">
+      <color _nil="1"/>
+     </tickAttributes>
+    </minorGrid>
+    <origin>
+     <value _nil="1"/>
+    </origin>
+   </associatedAxes>
+   <seriesDefinitions sorting="1">
+    <query definition=""/>
+    <seriesPalette>
+     <entries _body=",255,231,131,58"/>
+     <entries _body=",255,242,88,106"/>
+     <entries _body=",255,232,172,58"/>
+     <entries _body=",255,128,255,128"/>
+     <entries _body=",255,64,128,128"/>
+     <entries _body=",255,128,128,192"/>
+     <entries _body=",255,170,85,85"/>
+     <entries _body=",255,128,128,0"/>
+     <entries _body=",255,192,192,192"/>
+     <entries _body=",255,255,255,128"/>
+     <entries _body=",255,128,192,128"/>
+     <entries _body=",255,7,146,94"/>
+     <entries _body=",255,0,128,255"/>
+     <entries _body=",255,255,128,192"/>
+     <entries _body=",255,0,255,255"/>
+     <entries _body=",255,255,128,128"/>
+     <entries _body=",255,0,128,192"/>
+     <entries _body=",255,128,128,192"/>
+     <entries _body=",255,255,0,255"/>
+     <entries _body=",255,128,64,64"/>
+     <entries _body=",255,255,128,64"/>
+     <entries _body=",255,80,240,120"/>
+     <entries _body=",255,0,64,128"/>
+     <entries _body=",255,128,0,64"/>
+     <entries _body=",255,255,0,128"/>
+     <entries _body=",255,128,128,64"/>
+     <entries _body=",255,128,128,128"/>
+     <entries _body=",255,255,128,255"/>
+     <entries _body=",255,0,64,0"/>
+     <entries _body=",255,0,0,0"/>
+     <entries _body=",255,255,255,255"/>
+     <entries _body=",255,255,128,0"/>
+    </seriesPalette>
+    <series seriesIdentifier="">
+     <label>
+      <background _nil="1"/>
+      <outline>
+       <color _nil="1"/>
+      </outline>
+     </label>
+     <dataDefinition definition="row[&quot;Region&quot;]"/>
+     <curveFitting _nil="1"/>
+    </series>
+    <grouping enabled="true"/>
+    <sortKey definition="row[&quot;Total Bill&quot;]"/>
+   </seriesDefinitions>
+   <lineAttributes visible="false">
+    <color _nil="1"/>
+   </lineAttributes>
+   <label>
+    <background _nil="1"/>
+    <outline>
+     <color _nil="1"/>
+    </outline>
+   </label>
+   <majorGrid>
+    <lineAttributes visible="false">
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes visible="false">
+     <color _nil="1"/>
+    </tickAttributes>
+   </majorGrid>
+   <minorGrid>
+    <lineAttributes visible="false">
+     <color _nil="1"/>
+    </lineAttributes>
+    <tickAttributes visible="false">
+     <color _nil="1"/>
+    </tickAttributes>
+   </minorGrid>
+   <origin>
+    <value _nil="1"/>
+   </origin>
+  </axes>
+  <rotation>
+   <angles/>
+  </rotation>
+ </ChartWithAxes>
+</ActuateChart>
+]]></xml-property>
+                                        <property name="outputFormat">JS</property>
+                                        <property name="inheritColumns">false</property>
+                                        <property name="height">390pt</property>
+                                        <property name="width">305.25pt</property>
+                                        <property name="dataSet">Billing Data Set</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">CustomerID</property>
+                                                <text-property name="displayName">CustomerID</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["CustomerID"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Region</property>
+                                                <text-property name="displayName">Region</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Region"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">City</property>
+                                                <text-property name="displayName">City</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["City"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Billing Account</property>
+                                                <text-property name="displayName">Billing Account</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Billing Account"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Department</property>
+                                                <text-property name="displayName">Department</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Department"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Emp ID</property>
+                                                <text-property name="displayName">Emp ID</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Emp ID"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Full Name</property>
+                                                <text-property name="displayName">Full Name</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Full Name"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Phone Number</property>
+                                                <text-property name="displayName">Phone Number</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Phone Number"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Plan ID</property>
+                                                <text-property name="displayName">Plan ID</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Plan ID"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Plan Name</property>
+                                                <text-property name="displayName">Plan Name</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Plan Name"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Max Reg Min</property>
+                                                <text-property name="displayName">Max Reg Min</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Max Reg Min"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Max Intl Min</property>
+                                                <text-property name="displayName">Max Intl Min</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Max Intl Min"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Max Text</property>
+                                                <text-property name="displayName">Max Text</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Max Text"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Max Data</property>
+                                                <text-property name="displayName">Max Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Max Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Max Intl Data</property>
+                                                <text-property name="displayName">Max Intl Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Max Intl Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Bill Plan Charge</property>
+                                                <text-property name="displayName">Bill Plan Charge</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Bill Plan Charge"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Period Date</property>
+                                                <text-property name="displayName">Period Date</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Period Date"]</expression>
+                                                <property name="dataType">date</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Period Year Month</property>
+                                                <text-property name="displayName">Period Year Month</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Period Year Month"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Period Year</property>
+                                                <text-property name="displayName">Period Year</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Period Year"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Period Month</property>
+                                                <text-property name="displayName">Period Month</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Period Month"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Total Bill</property>
+                                                <text-property name="displayName">Total Bill</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Total Bill"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Total Overrages</property>
+                                                <text-property name="displayName">Total Overrages</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Total Overrages"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Overrage Bands</property>
+                                                <text-property name="displayName">Overrage Bands</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Overrage Bands"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Reg Min</property>
+                                                <text-property name="displayName">Excess Reg Min</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Reg Min"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Reg Min Cost</property>
+                                                <text-property name="displayName">Excess Reg Min Cost</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Reg Min Cost"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Intl Min</property>
+                                                <text-property name="displayName">Excess Intl Min</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Min"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Intl Min Cost</property>
+                                                <text-property name="displayName">Excess Intl Min Cost</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Min Cost"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Text</property>
+                                                <text-property name="displayName">Excess Text</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Text"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Text Cost</property>
+                                                <text-property name="displayName">Excess Text Cost</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Text Cost"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Data</property>
+                                                <text-property name="displayName">Excess Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Data Cost</property>
+                                                <text-property name="displayName">Excess Data Cost</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Data Cost"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Intl Data</property>
+                                                <text-property name="displayName">Excess Intl Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Excess Intl Data Cost</property>
+                                                <text-property name="displayName">Excess Intl Data Cost</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Excess Intl Data Cost"]</expression>
+                                                <property name="dataType">float</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Regular Minutes</property>
+                                                <text-property name="displayName">Regular Minutes</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Regular Minutes"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">International Minutes</property>
+                                                <text-property name="displayName">International Minutes</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["International Minutes"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Text</property>
+                                                <text-property name="displayName">Text</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Text"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Data</property>
+                                                <text-property name="displayName">Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">International Data</property>
+                                                <text-property name="displayName">International Data</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["International Data"]</expression>
+                                                <property name="dataType">integer</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Dept</property>
+                                                <text-property name="displayName">Dept</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Dept"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Product</property>
+                                                <text-property name="displayName">Product</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Product"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Customer Identifier</property>
+                                                <text-property name="displayName">Customer Identifier</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Customer Identifier"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Company Name</property>
+                                                <text-property name="displayName">Company Name</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Company Name"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Location</property>
+                                                <text-property name="displayName">Location</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["Location"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                            <structure>
+                                                <property name="name">Total Bill Aggregation by Region</property>
+                                                <property name="dataType">float</property>
+                                                <property name="aggregateFunction">SUM</property>
+                                                <list-property name="arguments">
+                                                    <structure>
+                                                        <property name="name">Expression</property>
+                                                        <expression name="value" type="javascript">row["Total Bill"]</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="allowExport">true</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="theme">ThemesReportItems31.Chart-Warm Red</property>
+                                    </extended-item>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+                <cell id="14">
+                    <extended-item extensionName="HTMLControl" id="8">
+                        <method name="clientOnCreate"><![CDATA[// This example demonstrates how create the map and markers using Google Map JSAPI with Bubbles
+
+/* ----------------------------------------------------------------------------------------- */
+/* This is the configuration object for creating the chart. You modify it to map your own data.
+ * See inline comments for more details.
+ */
+
+var config = {
+	/*
+	 * The Google map key. You should provide your own key to use the Google Map
+	 * JSAPI.
+	 */
+	googleMapKey : "AIzaSyDHEs6RkyJsf5z6ysid-EgZy9BqSNVKb9Q",
+
+	/*
+	 * Provide the column binding names as shown below. If not all
+	 * column names are specified, the template will use the sample data instead.
+	 */
+
+	/* Specify the column name as it appears in the data set.
+	* Example: 
+	* 	latitudeColumn : "LATITUDE"
+	*/
+
+	/* the column name for the location value in String format */
+	locationColumn : "Region",
+	/* the column name for the size of the radius */
+	radiusColumn : "Total Region Bill",
+				
+	/* specify the default center coornidates for the map */
+	mapCenter : {
+		/* the latitude for the center */
+		lat :  1.3521,
+		/* the longitude for the center */
+		lng : 103.8198
+	}
+};
+
+
+/* --------------------------------------------------------------------------------------- */
+/*
+ * Below is the implementation code for the example. In most cases you do not need to
+ * modify it, unless you want to change the chart style, or behavior. 
+ * Changing the config object above is sufficient. 
+ */
+ debugger;
+// The Google Map jsapi url. You may provide your own api key and callback
+// function name.
+var googleMapScriptUrl = "https://maps.googleapis.com/maps/api/js?key="
+		+ config.googleMapKey + "&amp;sensor=false&amp;callback=initialize";
+
+// get the container id
+var id = this.getId();
+var map = null;
+var lastInfowindow = null;
+var customViz = this;
+customViz.setPrintTimeOut(5000);
+var data = this.getData();
+
+
+function getMarkerData() {
+debugger;
+		// use data bindings, make sure the column names in config is properly
+		// set
+		var data = customViz.getData();
+
+		if (!data || !data.rows || !data.columns) {
+			return [];
+		}
+
+		// gets the index for columns
+		var i1 = -1, i2 = -1;
+		for (var i = 0; i < data.columns.length; i++) {
+			if (data.columns[i] == config.locationColumn) {
+				i1 = i;
+			} else if (data.columns[i] == config.radiusColumn) {
+				i2 = i;
+			} 
+		}
+
+		if (i1 < 0 || i2 < 0) {
+			return [];
+		}
+
+		// populate marker data by column index
+		var markerData = [];
+		
+		var geocodedLookup = [];
+		geocodedLookup['Bedok Reservoir'] = [ 1.3425849, 103.9220863 ];
+		geocodedLookup['Orchard Road'] = [ 1.304518, 103.836167];
+		geocodedLookup['Marina Bay Sands'] = [ 1.2832131, 103.8581184];
+		geocodedLookup['Fullerton Hotel'] = [ 1.2863532, 103.8508784];
+		geocodedLookup['Rochester Park'] = [ 1.305677, 103.7847609];
+		geocodedLookup['Sentosa'] = [ 1.2489641, 103.8188008];
+		geocodedLookup['Ang Mo Kio'] = [ 1.3766003, 103.8300411];
+		geocodedLookup['Changi Airport'] = [ 1.3644202, 103.9893421];
+		
+		
+		for (var i = 0; i < data.rows.length; i++) {
+			var row = data.rows[i];
+			debugger;
+			markerData.push([ geocodedLookup[row[i1]][0], geocodedLookup[row[i1]][1], row[i1], row[i2] ]);			
+		}
+		debugger;
+		return markerData;
+
+}
+
+// load map jsapi
+function loadMap(scriptUrl) {
+
+	if (window.mapApiLoaded) {
+		return;
+	}
+
+	// mark the flag to prevent duplicate loading
+	window.mapApiLoaded = true;
+
+	// make sure we only load the jsapi once
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = scriptUrl;
+	document.body.appendChild(script);
+}
+
+
+var styles = [
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#acbcc9"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2e5d4"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#c5c6c6"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#e4d7c6"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#fbfaf7"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#c5dac6"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 33
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "lightness": 20
+            }
+        ]
+    }
+]						;      
+
+
+// create the map
+function createMap() {
+	var mapOptions = {
+		zoom : 11,
+		center : new google.maps.LatLng(config.mapCenter.lat,
+				config.mapCenter.lng),
+		scrollwheel : false,
+		styles : styles,
+		mapTypeId : google.maps.MapTypeId.ROADMAP,
+		navigationControlOptions : {
+			style : google.maps.NavigationControlStyle.SMALL,
+			position : google.maps.ControlPosition.TOP_RIGHT
+		}
+	};
+	map = new google.maps.Map(document.getElementById(id), mapOptions);
+	createMarker();
+	customViz.setDelegate(map);
+	// CreateMarker() calls google api that has untrackable async js call itself. 
+	// It is not safe to call setPrintReady() here rather we need a timer to control it.
+	window.setTimeout(function(){customViz.setPrintReady()} , 3000);
+}
+
+// create markers
+function createMarker() {
+	var data = getMarkerData();
+
+	if (!data || data.length == 0) {
+		return;
+	}
+
+
+	for (var i = 0; i < data.length; i++) {
+		
+			var marker = new google.maps.Circle({
+			strokeColor: '#b10e4a',
+			strokeOpacity: 0.9,
+			strokeWeight: 0,
+			fillColor: '#E7833A',
+			fillOpacity: 0.8,		
+			map : map,
+			center: new google.maps.LatLng(data[i][0], data[i][1]),
+			radius: Math.sqrt(data[i][3]) * 125
+		});
+		createMarkerInfoWindow(marker, data[i][2] + ' : $' +  data[i][3] );		
+	}
+}
+
+// create the popup info window for each marker
+function createMarkerInfoWindow(marker, info) {
+	var contentString = '<div><b>' + info + '</b></div>'
+	var infowindow = new google.maps.InfoWindow({
+		content : contentString
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+		if (lastInfowindow != null) {
+			lastInfowindow.close();
+		}
+		infowindow.setPosition(marker.getCenter());
+		infowindow.open(map, marker);
+		lastInfowindow = infowindow;
+	});
+}
+
+// check whether Google Map jsapi already loaded, duplicate loading may cause
+// issues.
+if (window.mapApiLoaded) {
+	// directly create the map
+	createMap();
+} else {
+
+	// due to the restriction of Google Map JSAPI, you must use a global
+	// callback function, here we use "initialize". change the name if there's
+	// any conflict
+	window.initialize = function() {
+		createMap();
+	};
+
+	// load jsapi and use callback to create the map
+	loadMap(googleMapScriptUrl);
+}
+
+
+
+
+]]></method>
+                        <property name="groups">
+                            <data-group>
+                                <property name="groupName">Region Group</property>
+                                <expression name="keyExpr" type="javascript">row["Region"]</expression>
+                                <property name="interval">none</property>
+                                <property name="sortDirection">asc</property>
+                            </data-group>
+                        </property>
+                        <property name="summaryData">true</property>
+                        <property name="height">652px</property>
+                        <property name="width">100%</property>
+                        <expression name="bookmark" type="javascript">"FixedLine By Location"</expression>
+                        <property name="dataSet">Billing Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">Region</property>
+                                <text-property name="displayName">Region</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Region"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Total Bill</property>
+                                <text-property name="displayName">Total Bill</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["Total Bill"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Total Region Bill</property>
+                                <property name="dataType">float</property>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Region Group</value>
+                                </simple-property-list>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["Total Bill"]</expression>
+                                    </structure>
+                                </list-property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="displayName">Google Map</property>
+                    </extended-item>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

@@ -1,0 +1,1896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamart xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201603302314</property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Telco Data Cube.Billing Data.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Telco Data Cube.Billing Data.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Telco Data Cube.Billing Data.x">135</property>
+    <property name="Telco Data Cube.Billing Data.y">80</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">54</property>
+        </structure>
+    </list-property>
+    <property name="enableACL">true</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.connectivity.oda.flatfile" name="Data Source" id="2">
+            <property name="HOME">Data/</property>
+            <property name="DELIMTYPE">COMMA</property>
+            <property name="CHARSET">UTF-8</property>
+            <property name="INCLCOLUMNNAME">YES</property>
+            <property name="INCLTYPELINE">YES</property>
+            <property name="TRAILNULLCOLS">NO</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Billing Data" id="54">
+            <expression name="rowACLExpression" type="javascript">row["Company Name"]+","+row["Company Name"]+"_"+row["Department"]</expression>
+            <property name="isVisible">true</property>
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">Dept</property>
+                    <expression name="expression" type="javascript">row["Department"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">CustomerID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">CustomerID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Region</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Region</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">City</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">City</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Billing Account</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Billing Account</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Department</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Emp ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Emp ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Full Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Full Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Phone Number</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Phone Number</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan ID</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Plan Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Plan Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Max Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Max Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Bill Plan Charge</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Bill Plan Charge</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Date</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year Month</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Period Year Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Year</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Year</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Period Month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Period Month</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Bill</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Bill</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Total Overrages</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Total Overrages</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Overrage Bands</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Overrage Bands</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Reg Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Reg Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Min Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Min Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Text Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Text Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Excess Intl Data Cost</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Excess Intl Data Cost</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Regular Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Regular Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Minutes</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Minutes</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Text</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Text</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">International Data</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="heading">International Data</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Product</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Product</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Customer Identifier</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Customer Identifier</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Company Name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Company Name</text-property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+                <structure>
+                    <property name="columnName">Dept</property>
+                    <property name="analysis">attribute</property>
+                    <property name="indexColumn">false</property>
+                    <property name="compressed">false</property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CustomerID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Region</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">City</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Billing Account</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Emp ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Full Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Phone Number</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">Plan ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">Plan Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Max Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Max Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Max Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Max Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">Max Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Bill Plan Charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Period Date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Period Year Month</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">Period Year</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">Period Month</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">Total Bill</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">Total Overrages</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">Overrage Bands</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">Excess Reg Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">Excess Reg Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">Excess Intl Min</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">Excess Intl Min Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">Excess Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">Excess Text Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">Excess Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">Excess Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">Excess Intl Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">Excess Intl Data Cost</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">Regular Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">International Minutes</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">Text</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">International Data</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">Product</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">Customer Identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">Company Name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">42</property>
+                        <property name="name">Dept</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CustomerID</property>
+                    <property name="nativeName">CustomerID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Region</property>
+                    <property name="nativeName">Region</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">City</property>
+                    <property name="nativeName">City</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Billing Account</property>
+                    <property name="nativeName">Billing Account</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">Department</property>
+                    <property name="nativeName">Department</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">Emp ID</property>
+                    <property name="nativeName">Emp ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">Full Name</property>
+                    <property name="nativeName">Full Name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">Phone Number</property>
+                    <property name="nativeName">Phone Number</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">Plan ID</property>
+                    <property name="nativeName">Plan ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">Plan Name</property>
+                    <property name="nativeName">Plan Name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">Max Reg Min</property>
+                    <property name="nativeName">Max Reg Min</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">Max Intl Min</property>
+                    <property name="nativeName">Max Intl Min</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">Max Text</property>
+                    <property name="nativeName">Max Text</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">Max Data</property>
+                    <property name="nativeName">Max Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">Max Intl Data</property>
+                    <property name="nativeName">Max Intl Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">Bill Plan Charge</property>
+                    <property name="nativeName">Bill Plan Charge</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">Period Date</property>
+                    <property name="nativeName">Period Date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">Period Year Month</property>
+                    <property name="nativeName">Period Year Month</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">Period Year</property>
+                    <property name="nativeName">Period Year</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">Period Month</property>
+                    <property name="nativeName">Period Month</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">Total Bill</property>
+                    <property name="nativeName">Total Bill</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">Total Overrages</property>
+                    <property name="nativeName">Total Overrages</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">Overrage Bands</property>
+                    <property name="nativeName">Overrage Bands</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">Excess Reg Min</property>
+                    <property name="nativeName">Excess Reg Min</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">Excess Reg Min Cost</property>
+                    <property name="nativeName">Excess Reg Min Cost</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">Excess Intl Min</property>
+                    <property name="nativeName">Excess Intl Min</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">Excess Intl Min Cost</property>
+                    <property name="nativeName">Excess Intl Min Cost</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">Excess Text</property>
+                    <property name="nativeName">Excess Text</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">Excess Text Cost</property>
+                    <property name="nativeName">Excess Text Cost</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">Excess Data</property>
+                    <property name="nativeName">Excess Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">Excess Data Cost</property>
+                    <property name="nativeName">Excess Data Cost</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">Excess Intl Data</property>
+                    <property name="nativeName">Excess Intl Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">Excess Intl Data Cost</property>
+                    <property name="nativeName">Excess Intl Data Cost</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">Regular Minutes</property>
+                    <property name="nativeName">Regular Minutes</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">International Minutes</property>
+                    <property name="nativeName">International Minutes</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">Text</property>
+                    <property name="nativeName">Text</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">Data</property>
+                    <property name="nativeName">Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">International Data</property>
+                    <property name="nativeName">International Data</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">Product</property>
+                    <property name="nativeName">Product</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">Customer Identifier</property>
+                    <property name="nativeName">Customer Identifier</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">Company Name</property>
+                    <property name="nativeName">Company Name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "CustomerID", "Region", "City", "Billing Account", "Department", "Emp ID", "Full Name", "Phone Number", "Plan ID", "Plan Name", "Max Reg Min", "Max Intl Min", "Max Text", "Max Data", "Max Intl Data", "Bill Plan Charge", "Period Date", "Period Year Month", "Period Year", "Period Month", "Total Bill", "Total Overrages", "Overrage Bands", "Excess Reg Min", "Excess Reg Min Cost", "Excess Intl Min", "Excess Intl Min Cost", "Excess Text", "Excess Text Cost", "Excess Data", "Excess Data Cost", "Excess Intl Data", "Excess Intl Data Cost", "Regular Minutes", "International Minutes", "Text", "Data", "International Data", "Product", "Customer Identifier", "Company Name" from "Corporate_Telco_Data.csv" : {"CustomerID","CustomerID",STRING;"Region","Region",STRING;"City","City",STRING;"Billing Account","Billing Account",STRING;"Department","Department",STRING;"Emp ID","Emp ID",STRING;"Full Name","Full Name",STRING;"Phone Number","Phone Number",STRING;"Plan ID","Plan ID",STRING;"Plan Name","Plan Name",STRING;"Max Reg Min","Max Reg Min",INT;"Max Intl Min","Max Intl Min",INT;"Max Text","Max Text",INT;"Max Data","Max Data",INT;"Max Intl Data","Max Intl Data",INT;"Bill Plan Charge","Bill Plan Charge",DOUBLE;"Period Date","Period Date",DATE;"Period Year Month","Period Year Month",STRING;"Period Year","Period Year",INT;"Period Month","Period Month",INT;"Total Bill","Total Bill",DOUBLE;"Total Overrages","Total Overrages",DOUBLE;"Overrage Bands","Overrage Bands",STRING;"Excess Reg Min","Excess Reg Min",INT;"Excess Reg Min Cost","Excess Reg Min Cost",DOUBLE;"Excess Intl Min","Excess Intl Min",INT;"Excess Intl Min Cost","Excess Intl Min Cost",DOUBLE;"Excess Text","Excess Text",INT;"Excess Text Cost","Excess Text Cost",DOUBLE;"Excess Data","Excess Data",INT;"Excess Data Cost","Excess Data Cost",DOUBLE;"Excess Intl Data","Excess Intl Data",INT;"Excess Intl Data Cost","Excess Intl Data Cost",DOUBLE;"Regular Minutes","Regular Minutes",INT;"International Minutes","International Minutes",INT;"Text","Text",INT;"Data","Data",INT;"International Data","International Data",INT;"Product","Product",STRING;"Customer Identifier","Customer Identifier",STRING;"Company Name","Company Name",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CustomerID</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CustomerID</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Region</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Region</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>City</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>City</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Billing Account</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Billing Account</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Department</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Department</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Emp ID</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Emp ID</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Full Name</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Full Name</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Phone Number</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Phone Number</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Plan ID</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Plan ID</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Plan Name</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Plan Name</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Max Reg Min</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Max Reg Min</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Max Intl Min</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Max Intl Min</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Max Text</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Max Text</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Max Data</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Max Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Max Intl Data</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Max Intl Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Bill Plan Charge</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Bill Plan Charge</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Period Date</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Period Date</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Period Year Month</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Period Year Month</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Period Year</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Period Year</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Period Month</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Period Month</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Total Bill</design:name>
+              <design:position>21</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Total Bill</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Total Overrages</design:name>
+              <design:position>22</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Total Overrages</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Overrage Bands</design:name>
+              <design:position>23</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Overrage Bands</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Reg Min</design:name>
+              <design:position>24</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Reg Min</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Reg Min Cost</design:name>
+              <design:position>25</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Reg Min Cost</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Intl Min</design:name>
+              <design:position>26</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Intl Min</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Intl Min Cost</design:name>
+              <design:position>27</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Intl Min Cost</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Text</design:name>
+              <design:position>28</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Text</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Text Cost</design:name>
+              <design:position>29</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Text Cost</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Data</design:name>
+              <design:position>30</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Data Cost</design:name>
+              <design:position>31</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Data Cost</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Intl Data</design:name>
+              <design:position>32</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Intl Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Excess Intl Data Cost</design:name>
+              <design:position>33</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Excess Intl Data Cost</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Regular Minutes</design:name>
+              <design:position>34</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Regular Minutes</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>International Minutes</design:name>
+              <design:position>35</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>International Minutes</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Text</design:name>
+              <design:position>36</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Text</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Data</design:name>
+              <design:position>37</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>International Data</design:name>
+              <design:position>38</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>International Data</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Dept</design:name>
+              <design:position>39</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Dept</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Product</design:name>
+              <design:position>40</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Product</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Customer Identifier</design:name>
+              <design:position>41</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Customer Identifier</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Company Name</design:name>
+              <design:position>42</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Company Name</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="Telco Data Cube" id="146">
+            <property name="dimensions">
+                <tabular-dimension name="Company" id="147">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="148">
+                            <property name="levels">
+                                <tabular-level name="Company Name" id="149">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Company Name</property>
+                                </tabular-level>
+                                <tabular-level name="Department" id="150">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Department</property>
+                                </tabular-level>
+                                <tabular-level name="Plan Name" id="151">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Plan Name</property>
+                                </tabular-level>
+                                <tabular-level name="Full Name" id="152">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Full Name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Period" id="153">
+                    <property name="isTimeType">true</property>
+                    <property name="defaultHierarchy">NewTabularHierarchy2</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy2" id="154">
+                            <property name="levels">
+                                <tabular-level name="Year" id="155">
+                                    <property name="dataType">integer</property>
+                                    <property name="dateTimeLevelType">year</property>
+                                    <list-property name="attributes">
+                                        <structure>
+                                            <property name="name">DateTime</property>
+                                            <property name="dataType">date</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="columnName">Period Date</property>
+                                </tabular-level>
+                                <tabular-level name="Month" id="156">
+                                    <property name="dataType">integer</property>
+                                    <property name="dateTimeLevelType">month</property>
+                                    <list-property name="attributes">
+                                        <structure>
+                                            <property name="name">DateTime</property>
+                                            <property name="dataType">date</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="columnName">Period Date</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+                <tabular-dimension name="Plan" id="161">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="162">
+                            <property name="levels">
+                                <tabular-level name="Plan Name" id="163">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Plan Name</property>
+                                </tabular-level>
+                                <tabular-level name="Department" id="164">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">Department</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="157">
+                    <property name="measures">
+                        <tabular-measure name="Total Overrages" id="158">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Total Overrages"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="alignment">right</property>
+                            <property name="isVisible">true</property>
+                            <structure name="format">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                        </tabular-measure>
+                        <tabular-measure name="Total Bill" id="159">
+                            <property name="function">sum</property>
+                            <property name="isCalculated">false</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["Total Bill"]</expression>
+                            <property name="dataType">float</property>
+                            <property name="alignment">right</property>
+                            <property name="isVisible">true</property>
+                            <structure name="format">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                        </tabular-measure>
+                        <tabular-measure name="Excess Percent" id="160">
+                            <property name="isCalculated">true</property>
+                            <expression name="measureExpression" type="javascript">(measure["Total Overrages"]/measure["Total Bill"])</expression>
+                            <property name="dataType">float</property>
+                            <property name="alignment">center</property>
+                            <property name="isVisible">true</property>
+                            <structure name="format">
+                                <property name="category">Fixed</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">Billing Data</property>
+        </tabular-cube>
+    </cubes>
+    <property name="linkedDataModels">
+        <linked-data-model name="Telco Data Model" id="5">
+            <property name="aliasDataSets">
+                <alias-data-set name="Billing Data" id="99">
+                    <property name="originDataSet">Billing Data</property>
+                </alias-data-set>
+            </property>
+            <property name="drillPaths">
+                <drill-path id="46">
+                    <text-property name="displayName">Department</text-property>
+                    <simple-property-list name="drillPathColumns">
+                        <value>dataSetRow["Company Name"]</value>
+                        <value>dataSetRow["Dept"]</value>
+                        <value>dataSetRow["Billing Account"]</value>
+                        <value>dataSetRow["Plan Name"]</value>
+                        <value>dataSetRow["Phone Number"]</value>
+                    </simple-property-list>
+                </drill-path>
+                <drill-path id="48">
+                    <text-property name="displayName">Location</text-property>
+                    <simple-property-list name="drillPathColumns">
+                        <value>dataSetRow["Company"]</value>
+                        <value>dataSetRow["Product"]</value>
+                        <value>dataSetRow["Department"]</value>
+                        <value>dataSetRow["Plan"]</value>
+                        <value>dataSetRow["Phone No"]</value>
+                    </simple-property-list>
+                </drill-path>
+                <drill-path id="169">
+                    <text-property name="displayName">Period Date</text-property>
+                    <simple-property-list name="drillPathColumns">
+                        <value>dataSetRow["Period Date"]["Year"]</value>
+                        <value>dataSetRow["Period Date"]["Month"]</value>
+                    </simple-property-list>
+                </drill-path>
+            </property>
+            <property name="categories">
+                <category name="Billing Data" id="100">
+                    <property name="categoryColumns">
+                        <category-column name="CustomerID" id="101">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">CustomerID</property>
+                        </category-column>
+                        <category-column name="Region" id="102">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Region</property>
+                        </category-column>
+                        <category-column name="City" id="103">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">City</property>
+                        </category-column>
+                        <category-column name="Billing Account" id="104">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Billing Account</property>
+                        </category-column>
+                        <category-column name="Department" id="105">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Department</property>
+                        </category-column>
+                        <category-column name="Emp ID" id="106">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Emp ID</property>
+                        </category-column>
+                        <category-column name="Full Name" id="107">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Full Name</property>
+                        </category-column>
+                        <category-column name="Phone Number" id="108">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Phone Number</property>
+                        </category-column>
+                        <category-column name="Plan ID" id="109">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Plan ID</property>
+                        </category-column>
+                        <category-column name="Plan Name" id="110">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Plan Name</property>
+                        </category-column>
+                        <category-column name="Max Reg Min" id="111">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Max Reg Min</property>
+                        </category-column>
+                        <category-column name="Max Intl Min" id="112">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Max Intl Min</property>
+                        </category-column>
+                        <category-column name="Max Text" id="113">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Max Text</property>
+                        </category-column>
+                        <category-column name="Max Data" id="114">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Max Data</property>
+                        </category-column>
+                        <category-column name="Max Intl Data" id="115">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Max Intl Data</property>
+                        </category-column>
+                        <category-column name="Bill Plan Charge" id="116">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Bill Plan Charge</property>
+                        </category-column>
+                        <category-column name="Period Date" id="117">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Period Date</property>
+                        </category-column>
+                        <category-column name="Period Year Month" id="118">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Period Year Month</property>
+                        </category-column>
+                        <category-column name="Period Year" id="119">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Period Year</property>
+                        </category-column>
+                        <category-column name="Period Month" id="120">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Period Month</property>
+                        </category-column>
+                        <category-column name="Total Bill" id="121">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Total Bill</property>
+                        </category-column>
+                        <category-column name="Total Overrages" id="122">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Total Overrages</property>
+                        </category-column>
+                        <category-column name="Overrage Bands" id="123">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Overrage Bands</property>
+                        </category-column>
+                        <category-column name="Excess Reg Min" id="124">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Reg Min</property>
+                        </category-column>
+                        <category-column name="Excess Reg Min Cost" id="125">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Reg Min Cost</property>
+                        </category-column>
+                        <category-column name="Excess Intl Min" id="126">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Intl Min</property>
+                        </category-column>
+                        <category-column name="Excess Intl Min Cost" id="127">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Intl Min Cost</property>
+                        </category-column>
+                        <category-column name="Excess Text" id="128">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Text</property>
+                        </category-column>
+                        <category-column name="Excess Text Cost" id="129">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Text Cost</property>
+                        </category-column>
+                        <category-column name="Excess Data" id="130">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Data</property>
+                        </category-column>
+                        <category-column name="Excess Data Cost" id="131">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Data Cost</property>
+                        </category-column>
+                        <category-column name="Excess Intl Data" id="132">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Intl Data</property>
+                        </category-column>
+                        <category-column name="Excess Intl Data Cost" id="133">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Excess Intl Data Cost</property>
+                        </category-column>
+                        <category-column name="Regular Minutes" id="134">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Regular Minutes</property>
+                        </category-column>
+                        <category-column name="International Minutes" id="135">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">International Minutes</property>
+                        </category-column>
+                        <category-column name="Text" id="136">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Text</property>
+                        </category-column>
+                        <category-column name="Data" id="137">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Data</property>
+                        </category-column>
+                        <category-column name="International Data" id="138">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">International Data</property>
+                        </category-column>
+                        <category-column name="Dept" id="139">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Dept</property>
+                        </category-column>
+                        <category-column name="Product" id="140">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Product</property>
+                        </category-column>
+                        <category-column name="Customer Identifier" id="141">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Customer Identifier</property>
+                        </category-column>
+                        <category-column name="Company Name" id="142">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Company Name</property>
+                        </category-column>
+                        <category-column name="Company" id="143">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Company Name</property>
+                        </category-column>
+                        <category-column name="Plan" id="144">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Plan Name</property>
+                        </category-column>
+                        <category-column name="Phone No" id="145">
+                            <property name="aliasDataSet">Telco Data Model/Billing Data</property>
+                            <property name="resultSetColumnName">Phone Number</property>
+                        </category-column>
+                    </property>
+                </category>
+            </property>
+            <property name="security">
+                <security id="165">
+                    <rules>
+                        <rule name="CustomerID Rule" id="166">
+                            <expression name="expression" type="javascript">hasUserACL([dataSetRow["Company Name"],dataSetRow["Company Name"]+"_"+dataSetRow["Department"]] )</expression>
+                        </rule>
+                    </rules>
+                    <assignments>
+                        <assignment category="Billing Data" id="167">
+                            <conditions>
+                                <rule ruleName="CustomerID Rule" name="Billing Data" id="168"/>
+                            </conditions>
+                        </assignment>
+                    </assignments>
+                </security>
+            </property>
+            <property name="pushDown">true</property>
+        </linked-data-model>
+    </property>
+</datamart>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201603302314</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="enableACL">false</property>
+    <property name="cascadeACL">true</property>
+    <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">/ThemesReportItems31.rptlibrary</property>
+            <property name="namespace">ThemesReportItems31</property>
+        </structure>
+    </list-property>
+    <data-sources>
+        <data-mart-data-source name="Data Source" id="4">
+            <property name="datamartURL">Data Objects/Corporate TelcoM</property>
+            <property name="accessType">latest</property>
+        </data-mart-data-source>
+    </data-sources>
+    <property name="linkedDataModels">
+        <data-mart-linked-data-model name="Telco Data Model" id="300">
+            <property name="dataSource">Data Source</property>
+            <property name="dataObject">Telco Data Model</property>
+        </data-mart-linked-data-model>
+    </property>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="263">
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="282">
+                    <property name="measure">Total Overrages</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="283">
+                            <property name="aggregationOnRow">Department/Department</property>
+                            <property name="aggregationOnColumn">Plan Name/Plan Name</property>
+                            <property name="width">0.75in</property>
+                            <property name="content">
+                                <data id="284">
+                                    <property name="fontSize">8pt</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Total Overrages_Department/Department_Plan Name/Plan Name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="285">
+                            <property name="content">
+                                <label id="286">
+                                    <property name="backgroundColor">#E8E8E8</property>
+                                    <property name="color">#0000FF</property>
+                                    <text-property name="text">Excess</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#E8E8E8</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="ComputedMeasureView" name="Excess%" id="295">
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="296">
+                            <property name="aggregationOnRow">Department/Department</property>
+                            <property name="aggregationOnColumn">Plan Name/Plan Name</property>
+                            <property name="width">0.6979166666666666in</property>
+                            <property name="content">
+                                <data id="292">
+                                    <property name="fontSize">8pt</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Total Bill_Department/Department_Plan Name/Plan Name</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="297">
+                            <property name="content">
+                                <label id="294">
+                                    <property name="color">#0000FF</property>
+                                    <text-property name="text">Total Bill</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#E8E8E8</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="290">
+                    <property name="measure">Total Bill</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="291">
+                            <property name="aggregationOnRow">Department/Department</property>
+                            <property name="aggregationOnColumn">Plan Name/Plan Name</property>
+                            <property name="width">0.65625in</property>
+                            <property name="content">
+                                <data name="Excess%1" id="299">
+                                    <property name="fontSize">8pt</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Percent</property>
+                                        <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                                    </structure>
+                                    <property name="resultSetColumn">Excess%</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="293">
+                            <property name="content">
+                                <label id="298">
+                                    <property name="color">#0000FF</property>
+                                    <text-property name="text">Excess%</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#E8E8E8</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="265">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="266">
+                            <property name="dimension">Company Name</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="267">
+                                    <property name="level">Company Name/Company Name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="268">
+                                            <property name="content">
+                                                <data name="Company Name" id="269">
+                                                    <property name="resultSetColumn">Company Name</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.25in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="DimensionView" id="271">
+                            <property name="dimension">Department</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="272">
+                                    <property name="level">Department/Department</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="273">
+                                            <property name="content">
+                                                <data name="Department" id="275">
+                                                    <property name="resultSetColumn">Department</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.0104166666666667in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="columns">
+                <extended-item extensionName="CrosstabView" id="277">
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="278">
+                            <property name="dimension">Plan Name</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="279">
+                                    <property name="level">Plan Name/Plan Name</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="280">
+                                            <property name="content">
+                                                <data name="Plan Name" id="281">
+                                                    <property name="resultSetColumn">Plan Name</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">0.9791666666666666in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="287"/>
+                <extended-item extensionName="CrosstabCell" id="288">
+                    <property name="content">
+                        <label id="289">
+                            <text-property name="text">Plan Name</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="264">
+                    <property name="content">
+                        <label id="270">
+                            <text-property name="text">Company Name</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="274">
+                    <property name="content">
+                        <label id="276">
+                            <text-property name="text">Department</text-property>
+                        </label>
+                    </property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Company Name</property>
+                    <expression name="expression">dataSetRow["Company Name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Department</property>
+                    <expression name="expression">dataSetRow["Department"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Plan Name</property>
+                    <expression name="expression">dataSetRow["Plan Name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Total Overrages_Department/Department_Plan Name/Plan Name</property>
+                    <expression name="expression">dataSetRow["Total Overrages"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Department/Department</value>
+                        <value>Plan Name/Plan Name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Total Bill_Department/Department_Plan Name/Plan Name</property>
+                    <expression name="expression">dataSetRow["Total Bill"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Department/Department</value>
+                        <value>Plan Name/Plan Name</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">Excess%</property>
+                    <expression name="expression" type="javascript">data["Total Overrages_Department/Department_Plan Name/Plan Name"]/data["Total Bill_Department/Department_Plan Name/Plan Name"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="theme">ThemesReportItems31.Crosstab-Warm Red</property>
+            <property name="linkedDataModel">Telco Data Model</property>
+        </extended-item>
+    </body>
+</report>
